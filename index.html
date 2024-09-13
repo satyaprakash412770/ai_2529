@@ -1,0 +1,183 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>New Tab</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="js/libs/mediaelementplayer.min.css">
+    </head>
+    <body oncontextmenu="javascript:return false;">
+        <div id="canvas" class="shadow_box" role="main">
+            <div id="canvas_slider">
+                <!-- Tyr Tab -->
+                <div id="tab_try" class="tab" >
+                    <div class="content">
+                         <div class="placeholder column"></div>
+                    </div>
+                </div>
+
+                <!-- Learn Tab -->
+                <div id="tab_learn" class="tab center_box">
+                    <div class="content">
+                        <div class="placeholder column"></div>
+                    </div>
+                </div>
+                <!-- Create tab -->
+                <div id="tab_create" class="tab show">
+                    <div class="content">
+                        <!-- Getting Started Column -->
+                        <section id="column_get_started" class="column"></section>
+
+                        <div class="column_spacing flex"></div>
+
+                        <!-- Continue Working Column -->
+                        <section id="column_continue_working" class="column"></section>
+
+                        <div class="column_spacing flex"></div>
+
+                        <!-- Online Column -->
+                        <section id="column_online" class="column"></section>
+
+                    </div>
+                </div>
+            </div>
+            <nav id="side_nav" class="button">
+                <ul>
+                    <li id="left_side_nav" class="disabled">
+                        <span class="arrow">&#x25C0;</span><span class="label">&nbsp;</span>
+                    </li>
+                    <li id="right_side_nav" class="disabled">
+                        <span class="label">&nbsp;</span><span class="arrow">&#x25B6;</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <footer>
+            <nav id="footer_nav" class="hidden">
+                <ul>
+                    <li id="footer_nav_try">
+                        <span class="label button" data-text-id="general_try">&nbsp;</span>
+                    </li>
+                    <li id="footer_nav_learn">
+                        <span class="label button" data-text-id="general_learn">&nbsp;</span>
+                        <div id='footer_learn_badge' class='badge hidden'></div> 
+                    </li>
+                    <li id="footer_nav_create" class="highlight show">
+                        <span class="label button" data-text-id="general_create">&nbsp;</span>
+                        <div id='footer_create_badge' class='badge hidden'></div> 
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Navigation arrow in footer, shown after its position is adjusted by javascript. -->
+            <img id="nav_arrow" class="hidden" src="images/nav_arrow.png" alt=""/>
+        </footer>
+
+        <!-- Video player Lightbox -->
+        <div id="video_player_lightbox" class="lightbox">
+            <div id="video_container">
+                <header>
+                    <aside class="prev button">
+                        <svg width="16px" height="16px">
+                            <polygon points="16,8 8,12 16,16" style="fill:#999"/>
+                        </svg><span></span>
+                    </aside>
+                    <aside class="next button">
+                        <span></span>
+                        <svg width="16px" height="16px">
+                            <polygon points="1,8 8,12 1,16" style="fill:#999"/>
+                        </svg>
+                    </aside>
+                    <span class="title"></span>
+                </header>
+            </div>
+        </div>
+
+        <!-- External URL Lightbox -->
+        <div id="leave_lightbox" class="lightbox">
+            <article>
+                <h1 data-text-id="leave_autodesk_notice_header">&nbsp;</h1>
+                <div data-text-id="leave_autodesk_notice_body"></div>
+                <p data-text-id="leave_autodesk_notice_bottom">
+                    &nbsp;
+                </p>
+            </article>
+
+            <footer>
+                <button class="blue" id="button_leave_continue" data-text-id="general_continue">
+                    &nbsp;
+                </button>
+                <button class="gray" id="button_leave_cancel" data-text-id="general_cancel">
+                    &nbsp;
+                </button>
+            </footer>
+        </div>
+
+        <div id="preload_mask"></div>
+        <div id="preload_try" class="hidden">
+            <iframe id="try_page" scrolling="yes" class="column" tabindex="-1"></iframe>
+        </div>
+        <!-- Learn tab content - To be moved into tab_learn when loaded -->
+        <div id="preload_learn" class="hidden">
+            <section id="section_whats_new" class="column">
+                <h1 data-text-id="column_whats_new_title">&nbsp;</h1>
+                <ol class="flex"></ol>
+            </section>
+            <div class="column_spacing flex"></div>
+            <section id="section_videos" class="column">
+                <div id="getting_started">
+                    <h1 data-text-id="column_videos_title" id="getting_started_title">&nbsp;</h1>
+                    <ol class="flex"></ol>
+                </div>
+                <div id="video_section_spacing" class="section_spacing"></div>
+                <div id="feature_videos">
+                    <h1 data-text-id="feature_videos_title" id="featured_title">&nbsp;</h1>
+                    <ol  class="flex"></ol>
+                </div>
+            </section>
+            <div class="column_spacing flex"></div>
+            <section id="section_resources" class="column">
+                <div id="Section_tip">
+                    <div id="tip_header">
+                        <h1 data-text-id="column_learning_tips_title" class="tip" style="display: -webkit-inline-box">&nbsp;</h1>
+                    </div>
+                    <div id="tip_container" style="position:relative">
+                        <div id="tipbackgroundbox" class="shadow_box white_box"></div>
+                        <div id="tip_resource_box" style="cursor:default" ></div>
+                    </div>
+                </div>
+                <div id="section_resourceslinks">
+                    <h1 data-text-id="column_learning_resouces_title" id="online_resource_title" class="resources">&nbsp;</h1>
+                    <div id="online_resources_panel">
+                        <div id="online_resources_box" class="shadow_box white_box"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- library scripts -->
+        <script src="js/libs/jquery-2.1.0.min.js"></script>
+        <script src="js/libs/jquery.transit.min.js"></script>
+        <script src="js/libs/mediaelement-and-player.min.js"></script>
+        <script src="js/libs/jquery-ui-1.10.4.min.js"></script>
+        <!-- end of library scripts -->
+        <!-- NTP scripts -->
+        <script src="js/Autodesk.AutoCAD.Ntp.js"></script>
+        <script src="js/ntp.base.js"></script>
+        <script src="js/ntp.jquery.js"></script>
+        <script src="js/ntp.widget.js"></script>
+        <script src="js/ntp.acad.js"></script>
+        <script src="js/ntp.utils.js"></script>
+        <script src="js/ntp.video.js"></script>
+        <script src="js/ntp.resources.js"></script>
+        <script src="js/ntp.content.js"></script>
+        <script src="js/ntp.page.js"></script>
+        <script src="js/ntp.customize.js"></script>
+        <!-- end of NTP scripts -->
+        <!-- scripts to used for unit test only -->
+        <!--<script src="../../../../../../global/src/testdev/APIHARNESS/NewTabPage/mainTest.js"></script>-->
+        <script src="../UnitTests/qunit/qunit-1.14.0.js"></script>
+        <script src="../UnitTests/tests/unittests.js"></script>
+        <!-- end of scripts -->
+    </body>
+</html>
